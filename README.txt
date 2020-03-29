@@ -5,5 +5,5 @@ docker build
 docker build  -t docker-spring-boot .
  
 run the application
-java -jar target\docker-spring-boot.jar
+java -jar docker-spring-boot.jar
  
