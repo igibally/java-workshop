@@ -1,9 +1,10 @@
-
+# step one: build application image
 docker build -t docker-spring-boot .
+
+# step two: run application image
 docker-compose up -d
 
 
-for test the webservice
-http:/localhost:8085/BHR
 
-Rockstar-123
+For test the webservice
+http:/localhost:8085/BHR
