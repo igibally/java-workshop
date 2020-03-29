@@ -11,6 +11,8 @@ import com.test.javaworkshop.exception.CountryNotFoundException;
 import com.test.javaworkshop.mapper.CountryDetailsMapper;
 import com.test.javaworkshop.service.ICountryDetailsService;
 
+import enums.ErrorResponseEnum;
+
 @RestController
 public class CountryDetailsController {
 
@@ -32,6 +34,8 @@ public class CountryDetailsController {
 	public CountryDetailsDTO getProduct(@PathVariable String contryCode) throws CountryNotFoundException {
 
 		CountryDao CountryDoa = countryDetailsService.findByCountryCode(contryCode);
+		if (CountryDoa == null)
+			throw new CountryNotFoundException(ErrorResponseEnum.INVALID_COUNTRY_CODE.name());
 
 		return CountryDetailsMapper.makeCountryDTO(CountryDoa);
 	}
